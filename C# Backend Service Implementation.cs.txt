@@ -1,0 +1,56 @@
+using System;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+
+namespace Reeves.CancerSupport.Backend
+{
+    /// <summary>
+    /// Represents a secure donation submission from the web platform.
+    /// </summary>
+    public class DonationSubmission
+    {
+        public string DonorName { get; set; }
+        public string EmailAddress { get; set; }
+        public decimal Amount { get; set; }
+        public DateTime SubmissionDate { get; set; } = DateTime.UtcNow;
+    }
+
+    public interface IDonationService
+    {
+        Task<bool> ProcessSecureDonationAsync(DonationSubmission submission);
+    }
+
+    /// <summary>
+    /// Handles validation and processing of secure form submissions.
+    /// </summary>
+    public class DonationService : IDonationService
+    {
+        private readonly ILogger<DonationService> _logger;
+
+        public DonationService(ILogger<DonationService> logger)
+        {
+            _logger = logger;
+        }
+
+        public async Task<bool> ProcessSecureDonationAsync(DonationSubmission submission)
+        {
+            if (submission == null)
+            {
+                _logger.LogWarning("Donation submission was null.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(submission.EmailAddress) || submission.Amount <= 0)
+            {
+                _logger.LogWarning("Invalid donation details received for donor: {Donor}", submission.DonorName);
+                return false;
+            }
+
+            // Simulate secure backend processing and database persistence
+            await Task.Delay(150);
+
+            _logger.LogInformation("Successfully processed donation of ${Amount} from {Email}", submission.Amount, submission.EmailAddress);
+            return true;
+        }
+    }
+}
