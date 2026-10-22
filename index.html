@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reeve's Cancer Support Program - Healing Children, Restoring Hope</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ==========================================================================
+       Base Styles & CSS Variables (Sage & Warm Cream Palette)
+       ========================================================================== */
+    :root {
+      --primary-color: #5a7d64;
+      --primary-hover: #486650;
+      --secondary-color: #d4a373;
+      --secondary-hover: #bc8a59;
+      --text-dark: #2c3e50;
+      --text-light: #606f7b;
+      --bg-cream: #fbf9f4;
+      --bg-white: #ffffff;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 12px rgba(90, 125, 100, 0.12);
+      --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+      --radius: 10px;
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--bg-cream);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==========================================================================
+       Navigation Header
+       ========================================================================== */
+    header {
+      background-color: var(--bg-white);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      letter-spacing: -0.5px;
+    }
+
+    .logo i {
+      color: var(--secondary-color);
+      font-size: 1.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: color 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .nav-cta {
+      background-color: var(--primary-color);
+      color: var(--bg-white) !important;
+      padding: 0.6rem 1.35rem;
+      border-radius: var(--radius);
+      transition: background-color 0.2s ease, transform 0.1s ease !important;
+    }
+
+    .nav-cta:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       Hero Section
+       ========================================================================== */
+    .hero {
+      background: linear-gradient(135deg, rgba(90, 125, 100, 0.92), rgba(44, 62, 80, 0.88)),
+                  url('https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: var(--bg-white);
+      text-align: center;
+      padding: 6.5rem 1.5rem 7.5rem;
+    }
+
+    .hero-container {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 0 auto 2.5rem;
+      opacity: 0.95;
+      max-width: 780px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 2.2rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--secondary-color);
+      color: var(--bg-white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--secondary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212, 163, 115, 0.4);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--bg-white);
+      border: 2px solid var(--bg-white);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       Stats / Impact Counter Section
+       ========================================================================== */
+    .impact-section {
+      max-width: var(--max-width);
+      margin: -3.5rem auto 4rem;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .stats-card-grid {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      padding: 2.5rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 2rem;
+      text-align: center;
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .stat-item i {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 0.75rem;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-desc {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       About Section
+       ========================================================================== */
+    #about {
+      max-width: var(--max-width);
+      margin: 5rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .about-img-container {
+      position: relative;
+    }
+
+    .about-img-container img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+    }
+
+    .about-content h2 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.5px;
+    }
+
+    .about-content p {
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .about-list i {
+      color: var(--secondary-color);
+      font-size: 1.1rem;
+    }
+
+    /* ==========================================================================
+       Programs Section
+       ========================================================================== */
+    #programs {
+      max-width: var(--max-width);
+      margin: 6rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+      letter-spacing: -0.5px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-light);
+      margin-bottom: 3.5rem;
+      font-size: 1.1rem;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--bg-white);
+      padding: 2.5rem 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-top: 4px solid var(--primary-color);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(90, 125, 100, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary-color);
+    }
+
+    .card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       Donation Section & Secure Form
+       ========================================================================== */
+    #donate {
+      background-color: var(--bg-white);
+      max-width: 650px;
+      margin: 5rem auto;
+      padding: 3rem 2.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid #eae5d9;
+    }
+
+    .donation-type-toggle {
+      display: flex;
+      background-color: var(--bg-cream);
+      padding: 0.3rem;
+      border-radius: var(--radius);
+      margin-bottom: 1.75rem;
+      gap: 0.25rem;
+      border: 1px solid #e2ddd0;
+    }
+
+    .toggle-btn {
+      flex: 1;
+      padding: 0.7rem;
+      border: none;
+      background: none;
+      font-weight: 600;
+      border-radius: calc(var(--radius) - 3px);
+      cursor: pointer;
+      color: var(--text-light);
+      transition: all 0.2s ease;
+    }
+
+    .toggle-btn.active {
+      background-color: var(--bg-white);
+      color: var(--primary-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .preset-amounts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .amount-btn {
+      padding: 0.85rem;
+      border: 1px solid #dcd5c4;
+      background-color: var(--bg-cream);
+      font-weight: 700;
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: all 0.2s ease;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    .amount-btn:hover, .amount-btn.active {
+      border-color: var(--primary-color);
+      background-color: rgba(90, 125, 100, 0.08);
+      color: var(--primary-color);
+    }
+
+    #donation-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    #donation-form label {
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 0.95rem;
+    }
+
+    #donation-form input[type="number"],
+    #donation-form input[type="text"],
+    #donation-form input[type="email"] {
+      width: 100%;
+      padding: 0.85rem;
+      border: 1px solid #dcd5c4;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+      background-color: #fdfbf7;
+    }
+
+    #donation-form input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      background-color: var(--bg-white);
+    }
+
+    .input-icon-wrapper {
+      position: relative;
+    }
+
+    .input-icon-wrapper span {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 700;
+      color: var(--text-light);
+    }
+
+    .input-icon-wrapper input {
+      padding-left: 2.2rem !important;
+    }
+
+    #card-element {
+      padding: 0.85rem;
+      border: 1px solid #dcd5c4;
+      border-radius: var(--radius);
+      background-color: #fdfbf7;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    #card-element input {
+      border: none !important;
+      background: transparent !important;
+      outline: none;
+      width: 100%;
+      font-family: inherit;
+      padding: 0 !important;
+    }
+
+    .impact-callout {
+      background-color: #edf5ef;
+      border-left: 4px solid var(--primary-color);
+      padding: 1rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.95rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 500;
+    }
+
+    #submit-btn {
+      background-color: var(--primary-color);
+      color: var(--bg-white);
+      border: none;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    #submit-btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* ==========================================================================
+       Notification Box
+       ========================================================================== */
+    .toast-message {
+      display: none;
+      padding: 1rem;
+      border-radius: var(--radius);
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .toast-success {
+      background-color: #d1e7dd;
+      color: #0f5132;
+      border: 1px solid #badbcc;
+    }
+
+    /* ==========================================================================
+       Footer & Contact Info
+       ========================================================================== */
+    footer {
+      background-color: #212c37;
+      color: #b0bec5;
+      padding: 4rem 1.5rem 2rem;
+      margin-top: 5rem;
+    }
+
+    .footer-grid {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    footer h3 {
+      color: var(--bg-white);
+      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
+      letter-spacing: -0.3px;
+    }
+
+    footer p {
+      margin-bottom: 0.85rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.65rem;
+    }
+
+    .footer-links a {
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--bg-white);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .social-links a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: #2c3e50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: background-color 0.2s;
+    }
+
+    .social-links a:hover {
+      background-color: var(--primary-color);
+    }
+
+    .copyright {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid #2c3e50;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #90a4ae;
+    }
+
+    /* ==========================================================================
+       Responsive Design Breakpoints
+       ========================================================================== */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-white);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1.25rem;
+        box-shadow: var(--shadow-md);
+        display: none;
+        border-top: 1px solid #eae5d9;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+      }
+
+      #about {
+        grid-template-columns: 1fr;
+      }
+
+      #donate {
+        margin: 3rem 1rem;
+        padding: 1.75rem;
+      }
+
+      .preset-amounts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <nav>
+      <a href="#" class="logo">
+        <i class="fa-solid fa-ribbon"></i> Reeve's Cancer Support
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#donate" class="nav-cta">Donate Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-container">
+      <div class="hero-badge"><i class="fa-solid fa-heart-pulse"></i> Cancer Children Support Program</div>
+      <h1>Every Child Deserves a Chance to Heal, Hope, and Dream Again</h1>
+      <p>"Every child deserves a chance to heal, hope, and dream again. Your generosity can help provide vital medical care, surgical support, and compassionate assistance to children facing cancer. If you have the means to help, your contribution can make a meaningful difference."</p>
+      <div class="hero-actions">
+        <a href="#donate" class="btn btn-primary"><i class="fa-solid fa-hand-holding-heart"></i> Donate Now</a>
+        <a href="#programs" class="btn btn-outline">Explore Programs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <div class="impact-section">
+    <div class="stats-card-grid">
+      <div class="stat-item">
+        <i class="fa-solid fa-child-reaching"></i>
+        <div class="stat-value" data-target="320">0</div>
+        <div class="stat-desc">Children in Treatment</div>
+      </div>
+      <div class="stat-item">
+        <i class="fa-solid fa-hospital-user"></i>
+        <div class="stat-value" data-target="1450">0</div>
+        <div class="stat-desc">Surgical & Medical Care Funded</div>
+      </div>
+      <div class="stat-item">
+        <i class="fa-solid fa-hands-holding-child"></i>
+        <div class="stat-value" data-target="98">0</div>
+        <div class="stat-desc">% Family Support & Counseling</div>
+      </div>
+      <div class="stat-item">
+        <i class="fa-solid fa-shield-heart"></i>
+        <div class="stat-value" data-target="5200">0</div>
+        <div class="stat-desc">Comfort & Care Hours</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about-img-container">
+      <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Caring medical professionals supporting pediatric patients">
+    </div>
+    <div class="about-content">
+      <h2>About Reeve's Cancer Support Program</h2>
+      <p>Reeve's Cancer Support Program is dedicated to transforming the journey of children battling cancer and their families. We believe that financial hardship should never stand in the way of a child receiving life-saving pediatric oncology care, surgeries, and compassionate support.</p>
+      <p>Through our comprehensive network of medical specialists, family counselors, and child life programs, we stand side-by-side with every family, bringing comfort, courage, and clinical excellence.</p>
+      <ul class="about-list">
+        <li><i class="fa-solid fa-circle-check"></i> Direct funding for critical pediatric oncology treatments</li>
+        <li><i class="fa-solid fa-circle-check"></i> Emotional and psychological counseling for patients & parents</li>
+        <li><i class="fa-solid fa-circle-check"></i> Specialized child life therapies and therapeutic comfort items</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section id="programs">
+    <h2 class="section-title">Our Core Programs</h2>
+    <p class="section-sub">Comprehensive medical, surgical, and emotional support for children facing cancer.</p>
+    <div class="program-grid">
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-stethoscope"></i></div>
+        <h3>Pediatric Oncology Care</h3>
+        <p>Providing specialized treatments, chemotherapy support, medications, and routine oncological monitoring tailored specifically for developing bodies.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-hospital"></i></div>
+        <h3>Surgical & Hospital Support</h3>
+        <p>Covering crucial surgical procedures, hospital stays, specialized medical equipment, and pediatric recovery care in top partner hospitals.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+        <h3>Family Financial & Counseling</h3>
+        <p>Alleviating the overwhelming economic burden with family relief grants, lodging assistance, and professional psychological counseling.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+        <h3>Child Life & Recreation</h3>
+        <p>Bringing joy and normalcy through play therapy, art workshops, educational tutors, and uplifting activities during hospital confinement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Section & Secure Form -->
+  <section id="donate">
+    <h2 class="section-title" style="margin-bottom: 0.5rem;">Support a Child Today</h2>
+    <p class="section-sub" style="margin-bottom: 1.5rem;">Your generosity funds vital medical care and brings hope to families in need.</p>
+
+    <div class="donation-type-toggle">
+      <button type="button" class="toggle-btn active" data-type="one-time">One-Time Gift</button>
+      <button type="button" class="toggle-btn" data-type="monthly">Monthly Support</button>
+    </div>
+
+    <div class="preset-amounts">
+      <button type="button" class="amount-btn" data-val="25">$25</button>
+      <button type="button" class="amount-btn active" data-val="50">$50</button>
+      <button type="button" class="amount-btn" data-val="100">$100</button>
+      <button type="button" class="amount-btn" data-val="250">$250</button>
+    </div>
+
+    <form id="donation-form">
+      <div class="form-group">
+        <label for="custom-amount">Donation Amount ($ USD)</label>
+        <div class="input-icon-wrapper">
+          <span>$</span>
+          <input type="number" id="custom-amount" min="1" value="50" required>
+        </div>
+      </div>
+
+      <div class="impact-callout" id="impactMessage">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span id="impactText">Your $50 donation covers essential comfort care packages and therapeutic toys for 2 children!</span>
+      </div>
+
+      <div class="form-group">
+        <label for="donor-name">Full Name</label>
+        <input type="text" id="donor-name" placeholder="Jane Doe" required>
+      </div>
+
+      <div class="form-group">
+        <label for="donor-email">Email Address</label>
+        <input type="email" id="donor-email" placeholder="jane@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label>Payment Method (Simulated Secure Checkout)</label>
+        <div id="card-element">
+          <i class="fa-regular fa-credit-card" style="color: #90a4ae;"></i>
+          <input type="text" id="card-number" placeholder="4242 •••• •••• 4242" maxlength="19" required>
+        </div>
+      </div>
+
+      <button type="submit" id="submit-btn">
+        <i class="fa-solid fa-lock"></i> Process Secure Contribution
+      </button>
+
+      <div id="toastMessage" class="toast-message toast-success"></div>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>Reeve's Cancer Support Program</h3>
+        <p>A dedicated charitable initiative providing critical medical care, surgical funding, and compassionate support to children facing cancer.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Quick Navigation</h3>
+        <ul class="footer-links">
+          <li><a href="#home">Home Page</a></li>
+          <li><a href="#about">About Our Mission</a></li>
+          <li><a href="#programs">Support Programs</a></li>
+          <li><a href="#donate">Make a Contribution</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contact Us</h3>
+        <p><i class="fa-solid fa-envelope"></i> phillipsgmehemsworth@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> +1 (555) 789-0123</p>
+        <p><i class="fa-solid fa-location-dot"></i> 450 Hope Pavilion, Suite 300, CA 90210</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      &copy; <span id="year"></span> Reeve's Cancer Support Program. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Preset donation amounts & dynamic impact messaging
+    const amountBtns = document.querySelectorAll('.amount-btn');
+    const customAmountInput = document.getElementById('custom-amount');
+    const impactText = document.getElementById('impactText');
+
+    function updateImpact(amount) {
+      if (amount < 25) {
+        impactText.textContent = "Your gift provides nutritional meals and care items during hospital visits!";
+      } else if (amount < 50) {
+        impactText.textContent = "Your gift contributes to essential pediatric medication and diagnostic tests!";
+      } else if (amount < 100) {
+        impactText.textContent = `Your $${amount} donation covers essential comfort care packages and therapeutic toys for 2 children!`;
+      } else {
+        impactText.textContent = `Your $${amount} donation directly supports specialized surgical care and family counseling sessions!`;
+      }
+    }
+
+    amountBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        amountBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const val = btn.getAttribute('data-val');
+        customAmountInput.value = val;
+        updateImpact(val);
+      });
+    });
+
+    customAmountInput.addEventListener('input', (e) => {
+      amountBtns.forEach(b => b.classList.remove('active'));
+      updateImpact(parseFloat(e.target.value) || 0);
+    });
+
+    // Formatting mock card number input
+    document.getElementById('card-number').addEventListener('input', (e) => {
+      let val = e.target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim();
+      e.target.value = val;
+    });
+
+    // Handle Donation Form Submission Simulation
+    const donationForm = document.getElementById('donation-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const toastMessage = document.getElementById('toastMessage');
+
+    donationForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing Secure Contribution...';
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fa-solid fa-lock"></i> Process Secure Contribution';
+        toastMessage.style.display = 'block';
+        toastMessage.textContent = 'Thank you! Your generous contribution has been processed successfully.';
+        donationForm.reset();
+        customAmountInput.value = 50;
+        updateImpact(50);
+        setTimeout(() => { toastMessage.style.display = 'none'; }, 6000);
+      }, 1200);
+    });
+
+    // Animate statistics counter on scroll
+    let animated = false;
+    window.addEventListener('scroll', () => {
+      const stats = document.querySelector('.impact-section');
+      if (stats && window.scrollY + window.innerHeight > stats.offsetTop && !animated) {
+        animated = true;
+        document.querySelectorAll('.stat-value').forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          let current = 0;
+          const step = Math.ceil(target / 50);
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              counter.textContent = target.toLocaleString() + (target === 98 ? '%' : '+');
+              clearInterval(timer);
+            } else {
+              counter.textContent = current.toLocaleString();
+            }
+          }, 30);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
